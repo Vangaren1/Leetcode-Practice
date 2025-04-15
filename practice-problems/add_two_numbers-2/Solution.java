@@ -1,40 +1,78 @@
+/*
+ * The java version and the python version differ because although the 
+ * largest int in python is greater than a regular int in java, 
+ * you don't notice because python makes no distinction between 
+ * int and long, but java does.  This means the two pointer 
+ * approach for java is better. 
+ */
+
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        long  first = convertFromList(l1);
-        long  second = convertFromList(l2);
-        
-        first = first + second;
-        ListNode results = convertToList(first);
-        return convertToList(first);
-    }
+        ListNode ptr1 = l1;
+        ListNode ptr2 = l2;
 
-    public long  convertFromList(ListNode l1){
-        long  result = 0;
-        long  tens = 0;
-        while( l1 != null){
-            long  exp = (long ) Math.pow(10, tens);
-            result = result + l1.val * exp;
-            tens++;
-            l1 = l1.next;
+        int main = 0;
+        int carry = 0;
+
+        while(ptr1 != null && ptr2 != null){
+            main = ptr1.val + ptr2.val + carry;
+            if(main > 9){
+                carry = 1;
+            }else{
+                carry = 0;
+            }
+            main = main % 10;
+            ptr1.val = main;
+            ptr2.val = main;
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
         }
-        return result;
-    }
 
-    public ListNode convertToList(long  val){
-        ListNode start = new ListNode(val % 10 );
-        val = val - val % 10;
-        val = val / 10;
-
-        ListNode ptr = start;
-        while( val > 0){
-            ptr.next = new ListNode(val % 10);
-            val = val - val % 10;
-            val = val / 10;
-            ptr = ptr.next;
+        if(ptr1 != null){
+            while(ptr1 != null){
+                main = ptr1.val + carry;
+                if(main > 9){
+                    carry = 1;
+                }else{
+                    carry = 0;
+                }
+                main = main % 10;
+                ptr1.val = main;
+                ptr1 = ptr1.next;
+            }  
+            if(carry == 1){
+                ListNode lastPtr = l1;
+                while(lastPtr.next != null){
+                    lastPtr = lastPtr.next;
+                }
+                lastPtr.next = new ListNode(1);
+            }
+            return l1;            
         }
-        return start;
+
+        while(ptr2 != null){
+            main = ptr2.val + carry;
+            if(main > 9){
+                carry = 1;
+            }else{
+                carry = 0;
+            }
+            main = main % 10;
+            ptr2.val = main;
+            ptr2 = ptr2.next;
+        }
+        if(carry == 1){
+            ListNode lastPtr = l2;
+            while(lastPtr.next != null){
+                lastPtr = lastPtr.next;
+            }
+            lastPtr.next = new ListNode(1);
+        }
+        return l2;
     }
+
+
 
 
     public static void main(String[] args){
@@ -53,7 +91,11 @@ class Solution {
         l2.next.next.next.next.next.next.next.next = new ListNode(9);
         l2.next.next.next.next.next.next.next.next.next = new ListNode(9);
         ListNode test = s.addTwoNumbers(l1, l2);
-        System.out.println(s.convertFromList(test));
+        while(test != null){
+            System.out.println(test.val);
+            test = test.next;
+        }
+        
     }
 }
 
