@@ -3,6 +3,7 @@ import common.ListNode;
 
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
         ListNode head = new ListNode();
         ListNode tail = head;
         while(list1 != null && list2 != null){
@@ -25,7 +26,6 @@ class Solution {
         return head.next;
     }
     
-
     public static void main(String[] args) {
         System.out.println("Running merge_two_sorted_lists...");
     }

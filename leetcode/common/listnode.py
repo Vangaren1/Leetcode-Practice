@@ -1,9 +1,8 @@
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-        
+
 def build_list(values):
     head = ListNode(0)
     curr = head

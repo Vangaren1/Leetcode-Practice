@@ -31,3 +31,4 @@ if __name__ == '__main__':
     result = s.mergeTwoLists(l1, l2)
     
     print_list(result)
+
