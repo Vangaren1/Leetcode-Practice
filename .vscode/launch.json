@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "type": "java",
-        "name": "Solution",
+        "type": "python",
+        "name": "Launch Python Solution",
         "request": "launch",
-        "mainClass": "Solution",
-        "projectName": "leetcode_119b6f36"
+        "program": "${file}",
+        "console": "integratedTerminal"
       },
       {
         "type": "java",

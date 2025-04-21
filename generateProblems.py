@@ -68,7 +68,7 @@ def ensure_common_files(use_listnode):
         if not os.path.exists(listnode_path):
             with open(listnode_path, "w") as f:
                 f.write(LISTNODE_TEMPLATE)
-def generate_problem(category, problem_path, use_listnode=False):
+def generate_problem(category, problem_path, use_listnode=False, use_treenode=False):
     ensure_common_files(use_listnode)
     
     base_path = os.path.join(".", category, problem_path)
@@ -83,6 +83,9 @@ def generate_problem(category, problem_path, use_listnode=False):
 
     java_import = "import common.ListNode;\n" if use_listnode else ""
     py_import = "from common.listnode import ListNode, build_list, print_list" if use_listnode else ""
+
+    if use_treenode:
+        py_import += "\nfrom common.treenode import TreeNode, deserialize, printTree"
 
     java_path = os.path.join(base_path, "Solution.java")
     py_path = os.path.join(base_path, f"{function_name}.py")  # Only one folder level, correct now
@@ -111,4 +114,6 @@ if __name__ == "__main__":
         category = sys.argv[1]
         problem_name = sys.argv[2]
         use_listnode = "--listnode" in sys.argv
-        generate_problem(category, problem_name, use_listnode)
+        use_treenode = "--treenode" in sys.argv
+        generate_problem(category, problem_name, use_listnode, use_treenode)
+        
