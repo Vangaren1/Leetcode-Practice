@@ -22,17 +22,20 @@ def deserialize(treeList):
     return root
         
 def printTree(root):
-    if root:
-        printTree(root.left)
-        print(root.val)
-        printTree(root.right)
+    print("Tree", end=" ")
+    printTreeRecursive(root)
+    print('\n')
         
-if __name__ == "__main__":
-    
-    testList = [4,2,7,1,3,6,9]
+def printTreeRecursive(root):
+    if root:
+        printTreeRecursive(root.left)
+        print(root.val, end=" ")
+        printTreeRecursive(root.right)
 
-    
+if __name__ == "__main__":
+
+    testList = [4,2,7,1,3,6,9]
     root = deserialize(testList)
-    
     printTree(root)    
+
     print("testing treeNode")

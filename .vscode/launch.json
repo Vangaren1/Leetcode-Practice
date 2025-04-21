@@ -2,7 +2,14 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "type": "python",
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week1.invert_binary_tree_226.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "debugpy",
         "name": "Launch Python Solution",
         "request": "launch",
         "program": "${file}",

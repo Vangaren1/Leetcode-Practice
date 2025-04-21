@@ -1,4 +1,4 @@
-package Grind75.week1.merge_two_sorted_lists;
+package Grind75.week1.merge_two_sorted_lists_21;
 import common.ListNode;
 
 class Solution {
