@@ -1,23 +1,59 @@
 package Grind75.week1.invert_binary_tree_226;
 import java.util.Arrays;
-
-import common.TreeNode;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 
 
 class Solution {
     public TreeNode invertTree(TreeNode root) {
         if(root != null){
-            
-
+            TreeNode newRoot = new TreeNode(root.val);
+            newRoot.left = invertTree(root.right);
+            newRoot.right = invertTree(root.left);
+            return newRoot;
         }
         return root;
     }
 
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+
+    
+    public static void printTree(TreeNode root){
+        printTreeRecursive(root);
+        System.out.println();
+    }
+
+    public static void printTreeRecursive(TreeNode root) {
+        if (root == null) return;
+        printTreeRecursive(root.left);
+        System.out.print(root.val + " ");
+        printTreeRecursive(root.right);
+    }
+
     public static void main(String[] args) {
+        Solution s = new Solution();
         
-        TreeNode root = TreeNode.deserialize(Arrays.asList(4, 2, 7, 1, 3, 6, 9));
-        TreeNode.printTree(root);  // Should print: 1 2 3 4 6 7 9
+        TreeNode root = s.new TreeNode(2, s.new TreeNode(1), s.new TreeNode(3));
+      
+        Solution.printTree(root);
+
+        root = s.invertTree(root);
+        
+        Solution.printTree(root);
 
         System.out.println("Running invert_binary_tree-226...");
     }

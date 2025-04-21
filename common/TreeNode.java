@@ -49,11 +49,16 @@ public class TreeNode {
         return root;
     }
 
-    public static void printTree(TreeNode root) {
+    public static void printTree(TreeNode root){
+        printTreeRecursive(root);
+        System.out.println();
+    }
+
+    public static void printTreeRecursive(TreeNode root) {
         if (root == null) return;
-        printTree(root.left);
+        printTreeRecursive(root.left);
         System.out.print(root.val + " ");
-        printTree(root.right);
+        printTreeRecursive(root.right);
     }
 }
  
