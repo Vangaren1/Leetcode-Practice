@@ -26,6 +26,7 @@ class Solution {
         Solution sol = new Solution();
 
         boolean result = sol.isAnagram(s, t);
+        System.out.println(result);
 
         System.out.println("Running valid_anagrams_242...");
     }
