@@ -5,6 +5,27 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week2.reverse_linked_list_206.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week2.climbing_stairs_70.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week2.first_bad_version_278.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week1.flood_fill_733.Solution",
         "projectName": "leetcode_119b6f36"
       },
