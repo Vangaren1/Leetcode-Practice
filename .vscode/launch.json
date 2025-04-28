@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week2.add_binary_67.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week2.reverse_linked_list_206.Solution",
         "projectName": "leetcode_119b6f36"
       },
