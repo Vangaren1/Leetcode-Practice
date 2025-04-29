@@ -13,7 +13,7 @@ class Solution {{
 
 
 TEMPLATE_PY = '''\
-from typing import Optional
+from typing import Optional, List
 {import_line}
 
 class Solution:
