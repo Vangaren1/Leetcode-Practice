@@ -6,6 +6,13 @@
         "name": "Solution",
         "request": "launch",
         "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
         "projectName": "Leetcode-Practice_e4b8ecde"
       },
       {

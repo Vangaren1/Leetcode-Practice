@@ -30,7 +30,7 @@ class Solution {
         public Coord(int x, int y){
             this.x = x;
             this.y = y;
-            this.distance = x^2 + y^2;
+            this.distance = x*x + y*y;
         }
 
         public int[] getPair(){
