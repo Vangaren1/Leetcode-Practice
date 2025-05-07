@@ -13,7 +13,7 @@ class Solution {
 
         ArrayList<int[]> results = new ArrayList<>();
 
-        while(k >= 0){
+        while(k > 0){
             Coord tmp = queue.poll();
             results.add( tmp.getPair() );
             k--;
