@@ -1,6 +1,5 @@
 from typing import Optional, List
 
-from collections import defaultdict
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
@@ -37,5 +36,4 @@ if __name__ == "__main__":
     s = Solution()
     
     print(s.threeSum(nums))
-    
     print("Running Solution...")
