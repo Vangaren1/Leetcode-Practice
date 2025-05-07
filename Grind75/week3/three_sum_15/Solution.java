@@ -1,9 +1,5 @@
 package Grind75.week3.three_sum_15;
 
-
-class Solution {
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
