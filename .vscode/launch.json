@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week4.coin_change_322.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week4.course_schedule_207.Solution",
         "projectName": "leetcode_119b6f36"
       },
