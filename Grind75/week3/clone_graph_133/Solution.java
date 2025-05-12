@@ -41,9 +41,7 @@ class Solution {
         d.neighbors.add(a);
         d.neighbors.add(c);
 
-        Solution s = new Solution();
 
-        Node newNode = s.cloneGraph(a);
 
 
 
