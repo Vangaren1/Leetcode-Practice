@@ -184,9 +184,11 @@ def generate_problem(category, problem_path, use_listnode=False, use_treenode=Fa
     py_import = "from common.listnode import ListNode, build_list, print_list" if use_listnode else ""
 
     if use_treenode:
+        java_import += "import common.TreeNode;\n"
         py_import += "\nfrom common.treenode import TreeNode, deserialize, printTree"
         
     if use_graphnode:
+        java_import += "import common.Node;\n"
         py_import += "\nfrom common.graphnode import GraphNode as Node, print_graph_bfs, build_graph"
 
     java_path = os.path.join(base_path, "Solution.java")

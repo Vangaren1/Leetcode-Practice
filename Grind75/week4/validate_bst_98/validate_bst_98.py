@@ -4,38 +4,40 @@ from common.treenode import TreeNode, deserialize, printTree
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def recIsValid(root, vals):
-            if root is None:
-                return (True,[])
-            checkLeft = self.isValidBST(root.left)
-            if not checkLeft[0]: 
-                return (False, [])
-            for v in checkLeft[1]:
-                if root.val < v:
-                    return (False, [])
-            if root.left and root.val < root.left.val:
-                return (False, [])
+        
+        def traverse(node, left=[], right=[]) -> bool:
+            if node is None:
+                return True
+            for l in left: 
+                if node.val >= l:
+                    return False
+            for r in right:
+                if node.val <= r:
+                    return False
             
-            checkRight = self.isValidBST(root.right)
-            if not checkRight[0]:
-                return (False, [])
-            for v in checkRight[1]:
-                if root.val > v:
-                    return (False, [])
-            if root.right and root.val > root.right.val:
-                return (False, [])
+            checkLeft = traverse(node.left, left+[node.val], right)
+            if not checkLeft:
+                return False
             
-            vals.append(root.val)
-            return (True, vals)
-        return recIsValid(root, [])
-
+            checkRight = traverse(node.right, left, right+[node.val])
+            if not checkRight:
+                return False
+            
+            return True
+        
+        result= traverse(root, [],[])
+        return result
 
 if __name__ == "__main__":
-    s= Solution()
-    null = None
-    root = [5,4,6,null,null,3,7]
-    root = deserialize(root)
     
-    print(s.isValidBST(root))
+    s = Solution()
+    
+    root = [2,1,3]
+    root = deserialize(root)
+    assert s.isValidBST(root) == True
+    
+    null = None
+    root = deserialize([5,1,4,null,null,3,6])
+    assert s.isValidBST(root) == False
     
     print("Running Solution...")
