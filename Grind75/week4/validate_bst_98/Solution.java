@@ -1,4 +1,5 @@
 package Grind75.week4.validate_bst_98;
+
 import common.TreeNode;
 
 import java.util.ArrayList;
@@ -42,7 +43,6 @@ class Solution {
         Solution s = new Solution();
 
         List<Integer> root = {};
-
 
         System.out.println("Running validate_bst_98...");
     }
