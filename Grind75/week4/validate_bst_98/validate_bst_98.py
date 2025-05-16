@@ -40,5 +40,4 @@ if __name__ == "__main__":
     root = deserialize([5,1,4,null,null,3,6])
     assert s.isValidBST(root) == False
     
-    
     print("Running Solution...")
