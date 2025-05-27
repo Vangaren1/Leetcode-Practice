@@ -5,6 +5,20 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week5.combination_sum_39.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week5.search_in_a_rotated_array_33.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week4.number_of_islands_200.Solution",
         "projectName": "Leetcode-Practice_e4b8ecde"
       },
