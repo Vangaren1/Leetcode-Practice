@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week5.sort_colors_75.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week5.merge_intervals_56.Solution",
         "projectName": "leetcode_119b6f36"
       },
