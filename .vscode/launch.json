@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Grind75.week5.account_merge_721.Solution",
+        "projectName": "Leetcode-Practice_e4b8ecde"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week5.sort_colors_75.Solution",
         "projectName": "leetcode_119b6f36"
       },
