@@ -3,6 +3,20 @@
     "configurations": [
       {
         "type": "java",
+        "name": "LRUCache",
+        "request": "launch",
+        "mainClass": "Grind75.week7.LRU_cache_146.LRUCache",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Grind75.week6.subset_78.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
         "name": "Solution",
         "request": "launch",
         "mainClass": "Grind75.week6.string_to_integer_8.Solution",
