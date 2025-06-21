@@ -3,6 +3,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Extra.longest_common_prefix_14.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
         "name": "LRUCache",
         "request": "launch",
         "mainClass": "Grind75.week7.LRU_cache_146.LRUCache",

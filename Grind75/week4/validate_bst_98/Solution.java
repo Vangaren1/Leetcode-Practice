@@ -42,7 +42,7 @@ class Solution {
 
         Solution s = new Solution();
 
-        List<Integer> root = {};
+
 
         System.out.println("Running validate_bst_98...");
     }
