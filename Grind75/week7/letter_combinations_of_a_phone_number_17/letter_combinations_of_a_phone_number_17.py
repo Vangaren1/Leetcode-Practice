@@ -29,5 +29,10 @@ class Solution:
         
         return results
 
+
 if __name__ == "__main__":
+    digits = "23"
+    s = Solution()
+    print(s.letterCombinations(digits))
+
     print("Running Solution...")
