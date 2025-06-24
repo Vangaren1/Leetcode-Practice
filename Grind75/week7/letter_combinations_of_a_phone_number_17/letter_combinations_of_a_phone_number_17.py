@@ -28,12 +28,11 @@ class Solution:
                         results.append(tmp+curr)
         
         return results
-            
-        
-        pass
+
 
 if __name__ == "__main__":
     digits = "23"
     s = Solution()
     print(s.letterCombinations(digits))
+
     print("Running Solution...")
