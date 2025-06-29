@@ -5,7 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
-
+        "mainClass": "Extra.sqrt_69.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Grind75.week7.find_all_anagrams_in_a_string_438.Solution",
         "projectName": "leetcode_119b6f36"
       },
