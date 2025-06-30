@@ -10,7 +10,14 @@ class Solution {
         for (int index = 0; index < tasks.length; index++ ) {
             taskDict.merge(tasks[index], 1,Integer::sum);
         }
-        
+        Map<Character, Integer> waitQueue = new HashMap<>();
+
+        int count = 0;
+
+        while (!taskDict.isEmpty()) {
+            count++;
+            
+        }
         return 0;
     }
     public static void main(String[] args) {
