@@ -10,7 +10,7 @@ class Solution {
         }
         
         int mid = nums.length / 2;
-        TreeNode node = new TreeNode(val = nums[mid]);
+        TreeNode node = new TreeNode(nums[mid]);
 
         int[] leftarray = Arrays.copyOfRange(nums, 0, mid);
         node.left = sortedArrayToBST(leftarray);
