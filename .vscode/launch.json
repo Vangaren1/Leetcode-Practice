@@ -3,6 +3,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Solution",
+        "request": "launch",
+        "mainClass": "Extra.reverse_vowels_345.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
         "name": "NumArray",
         "request": "launch",
         "mainClass": "Extra.range_sum_query_immutable_303.NumArray",

@@ -3,59 +3,44 @@ from collections import Counter, defaultdict
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        def validSub(a: dict, b: dict):
-            #returns true if all the items in a are in b
-            if len(a.keys()) < len(b.keys()):
-                return False
+        def valid(a, b):
             for key in b.keys():
-                if b.get(key) > a.get(key, 0):
+                if a.get(key, 0) < b.get(key):
                     return False
             return True
-            
-        req = dict(Counter(t))
         
-        curr = defaultdict(int)
-        
-        ptr1 = 0
-        # find start of substring
-        while s[ptr1] not in req.keys():
-            ptr1 += 1
-        
-        ptr2 = ptr1
-        # find the first string that contains a valid substring
-        while ptr2 < len(s) and not validSub(curr, req):
-            if s[ptr2] in req.keys():
-                curr[s[ptr2]] += 1
-            ptr2 += 1
-        
-        # if the end of the array is reached and no valid substring is found, return """
-        if not validSub(curr, req):
+        if len(t) > len(s):
             return ""
         
-        currMin = s[ptr1:ptr2]
+        tDict = dict(Counter(t))
+        currDict = defaultdict(int)
+        ptr1, ptr2 = 0, 0
+        currMin = ""
+        minLen = float('inf')
         
-        while ptr1 < len(s) and ptr2 < len(s):
-            # remove the first 
-            curr[s[ptr1]] -= 1
+        while ptr2 < len(s):
+            # move ptr2 until it's a valid substring
+            curr = s[ptr2]
+            if curr in tDict.keys():
+                currDict[curr] += 1
             ptr2 += 1
-            # advance ptr2 until the substring is valid again
-            while ptr2 < len(s) and not validSub(curr, req):
-                if s[ptr2] in req.keys():
-                    curr[s[ptr2]] += 1
-                ptr2 += 1
             
-            ptr1 += 1
-            #advance ptr1 till it reaches a character in t
-            while s[ptr1] not in t:
+            # move ptr1 right until it's the minimum valid string
+            while valid(currDict, tDict):
+                if ptr2 - ptr1 < minLen:
+                    minLen = ptr2 - ptr1
+                    currMin = s[ptr1:ptr2]
+                    
+                curr = s[ptr1]
+                if curr in currDict:
+                    currDict[curr] -= 1
                 ptr1 += 1
-                
+                    
             
-            # check if it's valid, if it is, compare to currMin
-            if validSub(curr, req) and (ptr2-ptr1 < len(currMin)):
-                currMin[ptr1:ptr2]
-                
         return currMin
         
+
+
         
         
         
@@ -65,6 +50,33 @@ if __name__ == "__main__":
     s = "ADOBECODEBANC"
     t = "ABC"
     expected = "BANC"
+    
+    assert sol.minWindow(s,t) == expected
+    
+    s = "A"
+    t = "AA"
+    
+    assert sol.minWindow(s,t) == ""
+    
+    s = "A"
+    t = "A"
+    
+    assert sol.minWindow(s,t) == "A"
+    
+    s = "A"
+    t = "B"
+    
+    assert sol.minWindow(s,t) == ""
+    
+    s = "AB"
+    t = "A"
+    
+    assert sol.minWindow(s,t) == "A"
+    
+    s = "ABC"
+    t = "A"
+    assert sol.minWindow(s,t) == "A"
+    
     
     print(sol.minWindow(s,t))
     
