@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Extra.perfect_square_367.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Extra.reverse_vowels_345.Solution",
         "projectName": "leetcode_119b6f36"
       },
