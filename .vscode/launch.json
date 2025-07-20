@@ -5,6 +5,13 @@
         "type": "java",
         "name": "Solution",
         "request": "launch",
+        "mainClass": "Extra.sum_of_left_leaves_404.Solution",
+        "projectName": "leetcode_119b6f36"
+      },
+      {
+        "type": "java",
+        "name": "Solution",
+        "request": "launch",
         "mainClass": "Extra.guess_number_374.Solution",
         "projectName": "leetcode_119b6f36"
       },
