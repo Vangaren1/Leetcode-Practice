@@ -1,7 +1,7 @@
 import os
 import sys
 
-TEMPLATE_JAVA = '''\
+TEMPLATE_JAVA = """\
 package {package_path};
 {import_line}
 class Solution {{
@@ -9,10 +9,10 @@ class Solution {{
         System.out.println("Running {class_name}...");
     }}
 }}
-'''
+"""
 
 
-TEMPLATE_PY = '''\
+TEMPLATE_PY = """\
 from typing import Optional, List
 {import_line}
 
@@ -20,16 +20,17 @@ class Solution:
     pass
 
 if __name__ == "__main__":
+    s = Solution()
     print("Running Solution...")
-'''
+"""
 
-TEMPLATE_README = '''\
+TEMPLATE_README = """\
 # {title}
 
 Your notes or the problem description here.
-'''
+"""
 
-LISTNODE_TEMPLATE = '''\
+LISTNODE_TEMPLATE = """\
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -48,7 +49,7 @@ def print_list(node):
         print(node.val, end=" -> ")
         node = node.next
     print("None")
-'''
+"""
 
 TREENODE_TEMPLATE = """
 class TreeNode:
@@ -137,8 +138,10 @@ def build_graph(adjList: list[list[int]]) -> 'GraphNode':
     return nodes[1]
 """
 
+
 def to_snake_case(name):
-    return ''.join(['_' + c.lower() if c.isupper() else c for c in name]).lstrip('_')
+    return "".join(["_" + c.lower() if c.isupper() else c for c in name]).lstrip("_")
+
 
 def ensure_common_files(use_listnode, use_treenode, use_graphnode):
     common_path = os.path.join("leetcode", "common")
@@ -154,25 +157,27 @@ def ensure_common_files(use_listnode, use_treenode, use_graphnode):
         if not os.path.exists(listnode_path):
             with open(listnode_path, "w") as f:
                 f.write(LISTNODE_TEMPLATE)
-    
+
     if use_treenode:
-        treenode_path = os.path.join(common_path, 'treenode.py')
+        treenode_path = os.path.join(common_path, "treenode.py")
         if not os.path.exists(treenode_path):
             with open(treenode_path, "w") as f:
                 f.write(TREENODE_TEMPLATE)
-    
+
     if use_graphnode:
         graphnode_path = os.path.join(common_path, "graphnode.py")
         if not os.path.exists(graphnode_path):
             with open(graphnode_path, "w") as f:
                 f.write(GRAPHNODE_TEMPLATE)
-                
-def generate_problem(category, problem_path, use_listnode=False, use_treenode=False, use_graphnode=False):
+
+
+def generate_problem(
+    category, problem_path, use_listnode=False, use_treenode=False, use_graphnode=False
+):
     ensure_common_files(use_listnode, use_treenode, use_graphnode)
-    
+
     base_path = os.path.join(".", category, problem_path)
     package_path = f"{category}.{problem_path.replace('/', '.')}"
-
 
     os.makedirs(base_path, exist_ok=True)
 
@@ -181,27 +186,34 @@ def generate_problem(category, problem_path, use_listnode=False, use_treenode=Fa
     function_name = to_snake_case(final_folder)
 
     java_import = "import common.ListNode;\n" if use_listnode else ""
-    py_import = "from common.listnode import ListNode, build_list, print_list" if use_listnode else ""
+    py_import = (
+        "from common.listnode import ListNode, build_list, print_list"
+        if use_listnode
+        else ""
+    )
 
     if use_treenode:
         java_import += "import common.TreeNode;\n"
         py_import += "\nfrom common.treenode import TreeNode, deserialize, printTree"
-        
+
     if use_graphnode:
         java_import += "import common.Node;\n"
         py_import += "\nfrom common.graphnode import GraphNode as Node, print_graph_bfs, build_graph"
 
     java_path = os.path.join(base_path, "Solution.java")
-    py_path = os.path.join(base_path, f"{function_name}.py")  # Only one folder level, correct now
+    py_path = os.path.join(
+        base_path, f"{function_name}.py"
+    )  # Only one folder level, correct now
     readme_path = os.path.join(base_path, "README.md")
 
     with open(java_path, "w") as f:
-        f.write(TEMPLATE_JAVA.format(
-            import_line=java_import,
-            class_name=final_folder,
-            package_path=package_path
-        ))
-
+        f.write(
+            TEMPLATE_JAVA.format(
+                import_line=java_import,
+                class_name=final_folder,
+                package_path=package_path,
+            )
+        )
 
     with open(py_path, "w") as f:
         f.write(TEMPLATE_PY.format(import_line=py_import))
@@ -210,7 +222,8 @@ def generate_problem(category, problem_path, use_listnode=False, use_treenode=Fa
         f.write(TEMPLATE_README.format(title=final_folder))
 
     print(f"✅ Created files in: {base_path}")
-    
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python generate_problem.py <Category> <ProblemName> [--listnode]")
@@ -220,5 +233,6 @@ if __name__ == "__main__":
         use_listnode = "--listnode" in sys.argv
         use_treenode = "--treenode" in sys.argv
         use_graphnode = "--graphnode" in sys.argv
-        generate_problem(category, problem_name, use_listnode, use_treenode, use_graphnode)
-        
+        generate_problem(
+            category, problem_name, use_listnode, use_treenode, use_graphnode
+        )
