@@ -67,8 +67,6 @@ class Solution:
         while not stk.isEmpty():
             queue.append(stk.pop())
 
-        print(queue)
-
         return self.evalRPN(queue)
 
         # put the str into postfix notation
