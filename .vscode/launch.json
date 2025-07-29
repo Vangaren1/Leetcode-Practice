@@ -3,6 +3,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Codec",
+        "request": "launch",
+        "mainClass": "Grind75.week8.serialize_and_deserialize_bst_297.Codec",
+        "projectName": "Leetcode-Practice_e4b8ecde"
+      },
+      {
+        "type": "java",
         "name": "Solution",
         "request": "launch",
         "mainClass": "Extra.sum_of_left_leaves_404.Solution",
