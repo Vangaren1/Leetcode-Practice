@@ -20,7 +20,7 @@ class Solution:
     pass
 
 if __name__ == "__main__":
-    s = Solution()
+    sol = Solution()
     print("Running Solution...")
 """
 
