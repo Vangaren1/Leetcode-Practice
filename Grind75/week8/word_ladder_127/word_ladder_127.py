@@ -38,7 +38,6 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-
     beginWord = "hit"
     endWord = "cog"
     wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
