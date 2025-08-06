@@ -1,4 +1,5 @@
 from typing import Optional, List
+
 import string
 
 
@@ -37,10 +38,9 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-
-    beginWord = "hot"
-    endWord = "dog"
-    wordList = ["hot", "dog"]
+    beginWord = "hit"
+    endWord = "cog"
+    wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
 
     print(sol.ladderLength(beginWord, endWord, wordList))
     print("Running Solution...")
