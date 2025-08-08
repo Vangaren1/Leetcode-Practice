@@ -3,17 +3,6 @@ from typing import Optional, List
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        # if n <= 0:
-        #     return []
-        # if n == 1:
-        #     return ["()"]
-        # if n == 2:
-        #     return ["()()", "(())"]
-        # if n == 3:
-        #     return ["()()()", "(())()", "()(())", "((()))", "(()())"]
-
-        opened, closed = 0, 0
-
         stack = []
         res = []
 
