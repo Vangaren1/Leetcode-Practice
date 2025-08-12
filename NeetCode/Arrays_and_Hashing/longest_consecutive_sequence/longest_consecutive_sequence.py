@@ -1,27 +1,31 @@
 from typing import Optional, List
 
+import heapq
+
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         numSet = set()
-
+        hq = []
         for n in nums:
-            numSet.add(n)
+            if n not in numSet:
+                numSet.add(n)
+                heapq.heappush(hq, n)
 
         count = 0
+        mCount = -1
+        while hq:
+            tmp = heapq.heappop(hq)
+            numSet.remove(tmp)
+            count = 1
+            while (tmp + 1) in numSet:
+                tmp = heapq.heappop(hq)
+                numSet.remove(tmp)
+                count += 1
+            mCount = max(mCount, count)
 
-        for n in list(numSet):
-            tmp = n
-            thiscount = 1
-            while True:
-                if (tmp + 1) in numSet:
-                    tmp = tmp + 1
-                    thiscount += 1
-                else:
-                    break
-            count = max(count, thiscount)
-
-        return count
+        # print(hq)
+        return mCount
 
 
 if __name__ == "__main__":
