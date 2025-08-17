@@ -16,19 +16,21 @@ class Solution:
             return head.next
 
         # go to the node before the nth node
-        ptr = head
-        for i in range(n - 1):
+        ptr = ListNode()
+        ptr.next = head
+        for i in range(count - n):
             ptr = ptr.next
 
-        ptr.next = ptr.next.next
+        if ptr and ptr.next:
+            ptr.next = ptr.next.next
 
         return head
 
 
 if __name__ == "__main__":
     sol = Solution()
-    head = build_list([5])
-    n = 1
+    head = build_list([1, 2])
+    n = 2
 
     print_list(sol.removeNthFromEnd(head, n))
     print("Running Solution...")
