@@ -1,0 +1,11 @@
+from typing import Optional, List
+
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        pass
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    print("Running Solution...")
