@@ -194,7 +194,9 @@ def generate_problem(
 
     if use_treenode:
         java_import += "import common.TreeNode;\n"
-        py_import += "\nfrom common.treenode import TreeNode, deserialize, printTree"
+        py_import += (
+            "\nfrom common.treenode import TreeNode, deserialize, printTree, null"
+        )
 
     if use_graphnode:
         java_import += "import common.Node;\n"
