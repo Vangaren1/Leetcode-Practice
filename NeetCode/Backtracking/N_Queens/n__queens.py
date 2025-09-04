@@ -3,17 +3,42 @@ from typing import Optional, List
 
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        board = [
-            [
-                ".",
-            ]
-            * n
-        ] * n
+        board = [["."] * n for _ in range(n)]
 
-        pass
+        columns = set()
+        posDiag = set()
+        negDiag = set()
+
+        results = []
+
+        def backtrack(row):
+            if row == n:
+                c = ["".join(r) for r in board]
+                results.append(c)
+                return
+            for col in range(n):
+                pDiag = row + col
+                nDiag = row - col
+                if col in columns or pDiag in posDiag or nDiag in negDiag:
+                    continue
+
+                columns.add(col)
+                posDiag.add(pDiag)
+                negDiag.add(nDiag)
+                board[row][col] = "Q"
+
+                backtrack(row + 1)
+
+                columns.remove(col)
+                posDiag.remove(pDiag)
+                negDiag.remove(nDiag)
+                board[row][col] = "."
+
+        backtrack(0)
+        return results
 
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.solveNQueens(4))
+    print(sol.solveNQueens(8))
     print("Running Solution...")
