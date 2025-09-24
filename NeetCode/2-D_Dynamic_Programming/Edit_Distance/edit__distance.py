@@ -33,11 +33,8 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    word1 = "neatcdee"
-    word2 = "neetcode"
-    print(sol.minDistance(word1, word2))
 
-    word1 = "monkeys"
-    word2 = "money"
+    word1 = "312"
+    word2 = "123"
     print(sol.minDistance(word1, word2))
     print("Running Solution...")
