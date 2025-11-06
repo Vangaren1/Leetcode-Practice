@@ -17,8 +17,6 @@ class Solution:
                 return key
         return -1
 
-        pass
-
 
 if __name__ == "__main__":
     sol = Solution()
