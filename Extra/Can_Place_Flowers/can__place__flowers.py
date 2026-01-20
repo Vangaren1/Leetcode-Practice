@@ -10,8 +10,6 @@ class Solution:
 
         if l < 2 and n <= 1:
             return 1 not in flowerbed
-        if n > l // 2:
-            return False
 
         ptr = 0
 
