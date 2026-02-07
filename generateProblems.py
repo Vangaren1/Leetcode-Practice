@@ -14,6 +14,8 @@ class Solution {{
 
 TEMPLATE_PY = """\
 from typing import Optional, List
+import heapq
+from collections import defaultdict
 {import_line}
 
 class Solution:
