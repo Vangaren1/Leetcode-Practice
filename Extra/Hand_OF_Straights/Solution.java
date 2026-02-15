@@ -1,4 +1,4 @@
-package NeetCode.Hand_OF_Straights;
+package Extra.Hand_OF_Straights;
 
 class Solution {
     public static void main(String[] args) {
