@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 
 TEMPLATE_JAVA = """\
 package {package_path};
@@ -10,7 +11,6 @@ class Solution {{
     }}
 }}
 """
-
 
 TEMPLATE_PY = """\
 from typing import Optional, List
@@ -25,6 +25,57 @@ if __name__ == "__main__":
     sol = Solution()
     print("Running Solution...")
 """
+
+TEMPLATE_CPP = """\
+// {filename}
+//
+// Compile locally with:
+// clang++ {filename} -std=c++17 -Wall -Wextra -O2 -o run && ./run
+//
+// NOTE:
+// - Remove main() before submitting to LeetCode.
+// - Keep only the class Solution definition.
+//
+
+#include <algorithm>
+#include <array>
+#include <cassert>
+#include <cctype>
+#include <climits>
+#include <cmath>
+#include <deque>
+#include <functional>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
+
+using namespace std;
+
+class Solution {{
+public:
+    // TODO: paste the LeetCode method signature here.
+}};
+
+int main() {{
+    cout << "Running {filename}..." << endl;
+
+    Solution sol;
+
+    // TODO:
+    // Add local test calls here
+
+    return 0;
+}}
+"""
+
 
 TEMPLATE_README = """\
 # {title}
@@ -80,7 +131,7 @@ def deserialize(treeList):
 def printTree(root):
     print("Tree", end=" ")
     printTreeRecursive(root)
-    print('\n')
+    print('\\n')
         
 def printTreeRecursive(root):
     if root:
@@ -141,8 +192,23 @@ def build_graph(adjList: list[list[int]]) -> 'GraphNode':
 """
 
 
-def to_snake_case(name):
+def to_snake_case(name: str) -> str:
     return "".join(["_" + c.lower() if c.isupper() else c for c in name]).lstrip("_")
+
+
+def safe_cpp_filename(folder_name: str) -> str:
+    """
+    Make a filename that won't cause quoting/escaping pain in shells.
+    Keeps letters, digits, underscores. Converts other characters to underscores.
+    """
+    # Convert spaces to underscores first (common case)
+    s = folder_name.replace(" ", "_")
+    # Replace everything else non [A-Za-z0-9_] with underscore
+    s = re.sub(r"[^A-Za-z0-9_]", "_", s)
+    # Collapse multiple underscores
+    s = re.sub(r"_+", "_", s).strip("_")
+    # Fallback
+    return s or "Solution"
 
 
 def ensure_common_files(use_listnode, use_treenode, use_graphnode):
@@ -183,7 +249,7 @@ def generate_problem(
 
     os.makedirs(base_path, exist_ok=True)
 
-    # Fix here: only snake_case the *final folder name*
+    # Only snake_case the *final folder name* for the Python file
     final_folder = os.path.basename(problem_path)
     function_name = to_snake_case(final_folder)
 
@@ -205,10 +271,12 @@ def generate_problem(
         py_import += "\nfrom common.graphnode import GraphNode as Node, print_graph_bfs, build_graph"
 
     java_path = os.path.join(base_path, "Solution.java")
-    py_path = os.path.join(
-        base_path, f"{function_name}.py"
-    )  # Only one folder level, correct now
+    py_path = os.path.join(base_path, f"{function_name}.py")
     readme_path = os.path.join(base_path, "README.md")
+
+    # NEW: C++ skeleton named after the folder
+    cpp_base = safe_cpp_filename(final_folder)
+    cpp_path = os.path.join(base_path, f"{cpp_base}.cpp")
 
     with open(java_path, "w") as f:
         f.write(
@@ -225,12 +293,17 @@ def generate_problem(
     with open(readme_path, "w") as f:
         f.write(TEMPLATE_README.format(title=final_folder))
 
+    with open(cpp_path, "w") as f:
+        f.write(TEMPLATE_CPP.format(filename=os.path.basename(cpp_path)))
+
     print(f"✅ Created files in: {base_path}")
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python generate_problem.py <Category> <ProblemName> [--listnode]")
+        print(
+            "Usage: python generateProblems.py <Category> <ProblemName> [--listnode] [--treenode] [--graphnode]"
+        )
     else:
         category = sys.argv[1]
         problem_name = sys.argv[2]
