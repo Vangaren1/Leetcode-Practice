@@ -1,4 +1,4 @@
-package Neetcode.Stack.Minimum_Stack;
+package NeetCode.Stack.Minimum_Stack;
 
 class Solution {
     public static void main(String[] args) {
