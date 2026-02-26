@@ -1,4 +1,4 @@
-package Neetcode.Stack.Valid_Parantheses;
+package NeetCode.Stack.Valid_Parantheses;
 
 class Solution {
     public static void main(String[] args) {

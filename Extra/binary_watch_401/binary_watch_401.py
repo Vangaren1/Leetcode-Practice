@@ -10,7 +10,6 @@ class Solution:
 
         retVal = []
 
-        n = 1
         for n in range(1 << 10):
             if bin(n).count("1") == turnedOn:
                 hours, minutes = display(n)
