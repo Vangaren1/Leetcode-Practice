@@ -22,6 +22,6 @@ class Solution:
 if __name__ == "__main__":
     sol = Solution()
 
-    nums = [1, 2, 4, 6]
+    nums = [1, 2, 3, 4]
     print(sol.productExceptSelf(nums))
     print("Running Solution...")
