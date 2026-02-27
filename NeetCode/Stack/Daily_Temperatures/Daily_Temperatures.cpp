@@ -34,21 +34,15 @@ public:
         for (int idx = 0; idx < n; idx++)
         {
             tmp = temperatures[idx];
-            if (stk.size() == 0 || stk.back().second > tmp)
-            {
-                stk.push_back({idx, tmp});
-            }
-            else
-            {
-                while (stk.back().second > tmp)
-                {
-                    tmpPair = stk.back();
-                    stk.pop_back();
 
-                    results[tmpPair.first] = idx - tmpPair.first + 1;
-                }
+            while (stk.size() > 0 && stk.back().second < tmp)
+            {
+                tmpPair = stk.back();
+                stk.pop_back();
+
+                results[tmpPair.first] = idx - tmpPair.first;
             }
-            return results;
+            stk.push_back({idx, tmp});
         }
 
         return results;
