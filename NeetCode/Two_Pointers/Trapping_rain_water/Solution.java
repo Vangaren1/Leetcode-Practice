@@ -1,4 +1,4 @@
-package Neetcode.Two_Pointers.Trapping_rain_water;
+package NeetCode.Two_Pointers.Trapping_rain_water;
 
 class Solution {
     public static void main(String[] args) {

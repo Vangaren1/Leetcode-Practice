@@ -21,7 +21,20 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    int maxProfit(vector<int> &prices)
+    {
+        int minSell = prices[0];
+        int maxProfit{0}, curr{0};
+
+        for (int num : prices)
+        {
+            curr = num - minSell;
+            maxProfit = max(maxProfit, curr);
+            minSell = min(minSell, num);
+        }
+        return maxProfit;
+    }
 };
