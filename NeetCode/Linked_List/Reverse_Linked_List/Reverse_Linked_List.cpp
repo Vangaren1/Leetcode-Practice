@@ -21,7 +21,32 @@
 
 using namespace std;
 
-class Solution {
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    ListNode *reverseList(ListNode *head)
+    {
+
+        ListNode *curr = head;
+        ListNode *prev = nullptr;
+        ListNode *next = nullptr;
+
+        while (curr != nullptr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
 };
