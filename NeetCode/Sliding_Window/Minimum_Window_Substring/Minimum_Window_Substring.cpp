@@ -24,53 +24,34 @@ using namespace std;
 class Solution
 {
 public:
-    string minWindow(string s, string t)
+    bool checkInclusion(string s1, string s2)
     {
-        if (s.size() < t.size())
+        if (s2.size() < s1.size())
         {
-            return "";
+            return false;
+        }
+        vector<int> count(26, 0), window(26, 0);
+
+        int right{0};
+
+        while (right < s1.size())
+        {
+            window[s2[right] - 'a']++;
+            count[s1[right] - 'a']++;
+            right++;
         }
 
-        vector<int> chCnt(128, 0);
-        vector<int> tCnt(128, 0);
-        int left{0}, right{0};
-
-        for (char ch : t)
+        while (right < s2.size())
         {
-            tCnt[ch]++;
-        }
-
-        int minStart{0}, minLen{INT_MAX};
-
-        while (left < s.size())
-        {
-            while (right < s.size() && !contains(chCnt, tCnt))
+            if (count == window)
             {
-                chCnt[s[right]]++;
-                right++;
-            }
-            if (contains(chCnt, tCnt) && minLen > (right - left))
-            {
-                minStart = left;
-                minLen = right - left;
+                return true;
             }
 
-            chCnt[s[left]]--;
-            left++;
+            window[s2[right] - 'a']++;
+            window[s2[right - s1.size()] - 'a']--;
+            right++;
         }
-        return minLen == INT_MAX ? "" : s.substr(minStart, minLen);
-    }
-
-    bool contains(vector<int> &A, vector<int> &B)
-    {
-
-        for (int index = 0; index < A.size(); index++)
-        {
-            if (A[index] < B[index])
-            {
-                return false;
-            }
-        }
-        return true;
+        return count == window;
     }
 };
