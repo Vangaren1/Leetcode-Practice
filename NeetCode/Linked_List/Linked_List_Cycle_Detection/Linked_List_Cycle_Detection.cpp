@@ -21,7 +21,8 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
     // TODO: paste the LeetCode method signature here.
 };
