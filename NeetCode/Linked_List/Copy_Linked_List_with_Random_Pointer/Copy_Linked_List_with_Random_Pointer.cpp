@@ -20,16 +20,43 @@
 #include <vector>
 
 using namespace std;
-struct ListNode
+class Node
 {
+public:
     int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    Node *next;
+    Node *random;
+
+    Node(int _val)
+    {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
 };
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    Node *copyRandomList(Node *head)
+    {
+        unordered_map<Node *, Node *> oldToNew;
+
+        Node *ptr = head, *tmp;
+        while (ptr)
+        {
+            tmp = new Node(ptr->val);
+            oldToNew[ptr] = tmp;
+            ptr = ptr->next;
+        }
+
+        ptr = head;
+
+        while (ptr)
+        {
+            oldToNew[ptr]->next = oldToNew[ptr->next];
+            oldToNew[ptr]->random = oldToNew[ptr->random];
+            ptr = ptr->next;
+        }
+        return oldToNew[head];
+    }
 };
