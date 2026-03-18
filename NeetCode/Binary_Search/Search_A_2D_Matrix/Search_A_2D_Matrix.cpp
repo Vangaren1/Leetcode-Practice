@@ -21,7 +21,32 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    bool searchMatrix(vector<vector<int>> &matrix, int target)
+    {
+        int left{0}, mid{0}, tmp{0};
+        int right = matrix.size() * matrix[0].size();
+
+        while (left < right)
+        {
+            mid = (left + right) / 2;
+            tmp = matrix[mid / matrix[0].size()][mid % matrix[0].size()];
+            if (tmp == target)
+            {
+                return true;
+            }
+            else if (tmp > target)
+            {
+                right = mid;
+            }
+            else
+            {
+                left = mid + 1;
+            }
+        }
+
+        return false;
+    }
 };

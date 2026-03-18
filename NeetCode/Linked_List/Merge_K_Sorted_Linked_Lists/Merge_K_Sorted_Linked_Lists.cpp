@@ -32,11 +32,41 @@ struct ListNode
 class Solution
 {
 public:
+    ListNode *mergeKLists(vector<ListNode *> &lists)
+    {
+        int m{0}, n = lists.size();
+
+        if (n == 0)
+        {
+            return nullptr;
+        }
+        if (n == 1)
+        {
+            return lists[0];
+        }
+
+        return mergeRange(lists, 0, n - 1);
+    }
+
+    ListNode *mergeRange(vector<ListNode *> &lists, int left, int right)
+    {
+        if (left == right)
+        {
+            return lists[left];
+        }
+
+        int mid = (left + right) / 2;
+
+        ListNode *leftList = mergeRange(lists, left, mid);
+        ListNode *rightList = mergeRange(lists, mid + 1, right);
+
+        return mergeTwoLists(leftList, rightList);
+    }
+
     ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
     {
-
-        ListNode *head = new ListNode(0);
-        ListNode *ptr = head;
+        ListNode head(0);
+        ListNode *ptr = &head;
 
         while (list1 != nullptr && list2 != nullptr)
         {
@@ -62,6 +92,6 @@ public:
             ptr->next = list2;
         }
 
-        return head->next;
+        return head.next;
     }
 };

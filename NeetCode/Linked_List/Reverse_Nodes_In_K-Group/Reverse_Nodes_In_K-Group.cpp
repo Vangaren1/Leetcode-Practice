@@ -21,7 +21,30 @@
 
 using namespace std;
 
-class Solution {
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    ListNode *reverseKGroup(ListNode *head, int k)
+    {
+        ListNode dummy(0);
+        dummy.next = head;
+
+        ListNode *first = &dummy, *second = &dummy;
+
+        int count{0};
+        while (second && count < k)
+        {
+            second = second->next;
+            count++;
+        }
+    }
 };
