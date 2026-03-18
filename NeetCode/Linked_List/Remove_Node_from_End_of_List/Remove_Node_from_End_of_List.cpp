@@ -32,5 +32,25 @@ struct ListNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    ListNode *removeNthFromEnd(ListNode *head, int n)
+    {
+        ListNode dummy(0);
+        dummy.next = head;
+        ListNode *first = &dummy, *second = &dummy;
+
+        for (int i = 0; i < n + 1; i++)
+        {
+            second = second->next;
+        }
+
+        while (second)
+        {
+            first = first->next;
+            second = second->next;
+        }
+
+        first->next = first->next->next;
+
+        return dummy.next;
+    }
 };

@@ -32,5 +32,38 @@ struct ListNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    {
+        ListNode *head = new ListNode(0);
+        ListNode *ptr = head;
+        int carry{0}, tmp{0};
+
+        while (l1 && l2)
+        {
+            tmp = l1->val + l2->val + carry;
+            ptr->next = new ListNode(tmp & 10);
+            carry = tmp / 10;
+            l1 = l1->next;
+            l2 = l2->next;
+            ptr = ptr->next;
+        }
+
+        ListNode *remaining = l1 ? l1 : l2;
+
+        while (remaining)
+        {
+            tmp = remaining->val + carry;
+            ptr->next = new ListNode(tmp & 10);
+            carry = tmp / 10;
+            ptr = ptr->next;
+            remaining = remaining->next;
+        }
+
+        if (carry)
+        {
+            ptr->next = new ListNode(1);
+        }
+
+        return head->next;
+    }
 };
