@@ -32,5 +32,26 @@ struct TreeNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        TreeNode *ptr = root;
+
+        while (ptr)
+        {
+            if (ptr->val > p->val && ptr->val > q->val)
+            {
+                ptr = ptr->left;
+            }
+            else if (ptr->val < p->val && ptr->val < q->val)
+            {
+                ptr = ptr->right;
+            }
+            else
+            {
+                return ptr;
+            }
+        }
+
+        return root;
+    }
 };
