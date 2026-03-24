@@ -34,5 +34,37 @@ struct TreeNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    vector<int> rightSideView(TreeNode *root)
+    {
+        vector<int> results;
+
+        if (!root)
+        {
+            return results;
+        }
+
+        queue<TreeNode *> qNodes({root});
+
+        while (!qNodes.empty())
+        {
+
+            int tmp{0};
+            for (int i = 0; i < qNodes.size(); i++)
+            {
+                TreeNode *ptr = qNodes.front();
+                qNodes.pop();
+                tmp = ptr->val;
+                if (ptr->left)
+                {
+                    qNodes.push(ptr->left);
+                }
+                if (ptr->right)
+                {
+                    qNodes.push(ptr->right);
+                }
+            }
+            results.push_back(tmp);
+        }
+        return results;
+    }
 };
