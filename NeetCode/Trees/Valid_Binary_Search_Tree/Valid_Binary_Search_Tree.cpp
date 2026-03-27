@@ -32,5 +32,21 @@ struct TreeNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    bool isValidBST(TreeNode *root)
+    {
+        return dfs(root, LLONG_MIN, LLONG_MAX);
+    }
+
+    bool dfs(TreeNode *node, long long minimum, long long maximum)
+    {
+        if (!node)
+        {
+            return true;
+        }
+        if (node->val >= minimum || node->val >= maximum)
+        {
+            return false;
+        }
+        return dfs(node->left, minimum, node->val) && dfs(node->right, node->val, maximum);
+    }
 };

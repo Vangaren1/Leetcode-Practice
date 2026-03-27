@@ -33,5 +33,27 @@ struct TreeNode
 class Solution
 {
 public:
-    // TODO: paste the LeetCode method signature here.
+    int maxPathSum(TreeNode *root)
+    {
+        int maxFound = INT_MIN;
+        dfs(root, maxFound);
+        return maxFound;
+    }
+
+    int dfs(TreeNode *root, int &maxFound)
+    {
+        if (!root)
+        {
+            return 0;
+        }
+
+        int left = dfs(root->left, maxFound);
+        int right = dfs(root->right, maxFound);
+
+        int maxChild = max(left, max(right, 0));
+        int nPlusChild = root->val + maxChild;
+        int split = left + right + root->val;
+        maxFound = max({maxFound, split, nPlusChild, root->val});
+        return nPlusChild;
+    }
 };
