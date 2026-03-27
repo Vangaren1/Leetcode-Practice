@@ -31,6 +31,32 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+// DFS solution
+class Solution
+{
+public:
+    int goodNodes(TreeNode *root)
+    {
+        return dfs(root, INT_MIN);
+    }
+    int dfs(TreeNode *node, int pathMax)
+    {
+        if (!node)
+        {
+            return 0;
+        }
+
+        int total = (pathMax <= node->val) ? 1 : 0;
+        int newMax = max(node->val, pathMax);
+        total += dfs(node->left, newMax);
+        total += dfs(node->right, newMax);
+
+        return total;
+    }
+};
+
+/*
+// BFS solution
 class Solution
 {
 public:
@@ -62,3 +88,4 @@ public:
         return count;
     }
 };
+*/

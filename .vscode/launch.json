@@ -1,301 +1,306 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-{
-  "name": "(lldb) Build + Debug Active C++ File",
-  "type": "cppdbg",
-  "request": "launch",
-  "program": "${fileDirname}/${fileBasenameNoExtension}.out",
-  "args": [],
-  "stopAtEntry": false,
-  "cwd": "${fileDirname}",
-  "environment": [],
-  "externalConsole": false,
-  "MIMode": "lldb",
-  "preLaunchTask": "build-active-cpp"
-},
-
-      {
-        "type": "java",
-        "name": "Codec",
-        "request": "launch",
-        "mainClass": "Grind75.week8.serialize_and_deserialize_bst_297.Codec",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.sum_of_left_leaves_404.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.guess_number_374.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.perfect_square_367.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.reverse_vowels_345.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "NumArray",
-        "request": "launch",
-        "mainClass": "Extra.range_sum_query_immutable_303.NumArray",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.move_zeroes_283.Solution",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week7.minimum_height_tree_310.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week7.task_scheduler_621.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.reverse_bits_190.Solution",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.excel_column_number_171.Solution",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.sqrt_69.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week7.find_all_anagrams_in_a_string_438.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Extra.longest_common_prefix_14.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "LRUCache",
-        "request": "launch",
-        "mainClass": "Grind75.week7.LRU_cache_146.LRUCache",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week6.subset_78.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week6.string_to_integer_8.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week6.word_break_139.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week5.sort_colors_75.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week5.merge_intervals_56.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week5.permutations_46.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week5.combination_sum_39.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week5.search_in_a_rotated_array_33.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week4.number_of_islands_200.Solution",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week4.product_of_array_except_self_238.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week4.coin_change_322.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week4.course_schedule_207.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
-        "projectName": "Leetcode-Practice_e4b8ecde"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week3.matrix_524.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week2.add_binary_67.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week2.reverse_linked_list_206.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week2.climbing_stairs_70.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week2.first_bad_version_278.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week1.flood_fill_733.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week1.binary_search_704.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week1.valid_anagrams_242.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "java",
-        "name": "Solution",
-        "request": "launch",
-        "mainClass": "Grind75.week1.invert_binary_tree_226.Solution",
-        "projectName": "leetcode_119b6f36"
-      },
-      {
-        "type": "debugpy",
-        "name": "Launch Python Solution",
-        "request": "launch",
-        "program": "${file}",
-        "console": "integratedTerminal"
-      },
-      {
-        "type": "java",
-        "name": "Debug Current Solution.java",
-        "request": "launch",
-        "mainClass": "${fileBasenameNoExtension}",
-        "cwd": "${fileDirname}",
-        "vmArgs": "-ea"
-      }
-    ]
-  }
-  
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Build + Debug Active C++ File",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "build-active-cpp",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "type": "java",
+      "name": "Codec",
+      "request": "launch",
+      "mainClass": "Grind75.week8.serialize_and_deserialize_bst_297.Codec",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.sum_of_left_leaves_404.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.guess_number_374.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.perfect_square_367.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.reverse_vowels_345.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "NumArray",
+      "request": "launch",
+      "mainClass": "Extra.range_sum_query_immutable_303.NumArray",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.move_zeroes_283.Solution",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week7.minimum_height_tree_310.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week7.task_scheduler_621.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.reverse_bits_190.Solution",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.excel_column_number_171.Solution",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.sqrt_69.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week7.find_all_anagrams_in_a_string_438.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Extra.longest_common_prefix_14.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "LRUCache",
+      "request": "launch",
+      "mainClass": "Grind75.week7.LRU_cache_146.LRUCache",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week6.subset_78.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week6.string_to_integer_8.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week6.word_break_139.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week5.sort_colors_75.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week5.merge_intervals_56.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week5.permutations_46.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week5.combination_sum_39.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week5.search_in_a_rotated_array_33.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week4.number_of_islands_200.Solution",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week4.product_of_array_except_self_238.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week4.coin_change_322.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week4.course_schedule_207.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week3.k_closest_points_to_origin_973.Solution",
+      "projectName": "Leetcode-Practice_e4b8ecde"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week3.matrix_524.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week2.add_binary_67.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week2.reverse_linked_list_206.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week2.climbing_stairs_70.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week2.first_bad_version_278.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week1.flood_fill_733.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week1.binary_search_704.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week1.valid_anagrams_242.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Grind75.week1.invert_binary_tree_226.Solution",
+      "projectName": "leetcode_119b6f36"
+    },
+    {
+      "type": "debugpy",
+      "name": "Launch Python Solution",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "java",
+      "name": "Debug Current Solution.java",
+      "request": "launch",
+      "mainClass": "${fileBasenameNoExtension}",
+      "cwd": "${fileDirname}",
+      "vmArgs": "-ea"
+    }
+  ]
+}
