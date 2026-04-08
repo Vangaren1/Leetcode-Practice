@@ -21,7 +21,55 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    vector<vector<int>> permute(vector<int> &nums)
+    {
+        vector<vector<int>> results;
+
+        if (nums.size() == 0)
+        {
+            return results;
+        }
+
+        if (nums.size() == 1)
+        {
+            results.push_back(nums);
+            return results;
+        }
+
+        for (int index = 0; index < nums.size(); index++)
+        {
+            vector<int> arr = nums;
+            int curr = arr[index];
+            arr.erase(arr.begin() + index);
+            vector<vector<int>> tmp = permute(arr);
+
+            for (vector<int> sub : tmp)
+            {
+                sub.insert(sub.begin(), curr);
+                results.push_back(sub);
+            }
+        }
+        return results;
+    }
 };
+
+int main()
+{
+    Solution sol;
+
+    vector<int> n = {1, 2, 3};
+
+    vector<vector<int>> r = sol.permute(n);
+
+    for (vector<int> p : r)
+    {
+        for (int i : p)
+        {
+            cout << i << " ";
+        }
+        cout << "\n";
+    }
+}

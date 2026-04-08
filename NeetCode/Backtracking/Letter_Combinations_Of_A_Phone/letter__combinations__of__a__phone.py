@@ -16,22 +16,17 @@ class Solution:
 
         results = []
 
-        def dfs(digits):
-            if len(digits) == 0:
-                return []
-            if len(digits) == 1:
-                return [d for d in lDict[digits]]
-            results = []
-            first = digits[0]
-            remaining = self.letterCombinations(digits[1:])
+        def dfs(index, word):
+            if len(word) == len(digits):
+                results.append(word)
+                return
 
-            for f in lDict.get(first):
-                for rem in remaining:
-                    results.append(f + rem)
+            for ch in lDict.get(digits[index]):
+                dfs(index + 1, word + ch)
 
-            return results
+        dfs(0, "")
 
-        return dfs(digits)
+        return results
 
 
 if __name__ == "__main__":
