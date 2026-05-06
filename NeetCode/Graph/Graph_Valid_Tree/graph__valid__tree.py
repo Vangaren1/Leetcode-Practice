@@ -1,31 +1,29 @@
 from typing import Optional, List
+from collections import defaultdict
 
 
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        qu = self.QUFind(n)
-        for a, b in edges:
-            check = qu.union(a, b)
-            if not check:
+        if len(edges) != (n - 1):
+            return False
+        adj = defaultdict(list)
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+        visited = set()
+
+        def dfs(v, parent):
+            if v in visited:
                 return False
-        return all([i == qu.array[0] for i in qu.array])
-
-    class QUFind:
-        def __init__(self, n):
-            self.array = [i for i in range(n)]
-
-        def connected(self, a, b):
-            return self.array[a] == self.array[b]
-
-        def union(self, a, b):
-            currA = self.array[a]
-            currB = self.array[b]
-            if currA == currB:
-                return False
-            for index in range(len(self.array)):
-                if self.array[index] == currA:
-                    self.array[index] = currB
+            visited.add(v)
+            for neighbor in adj[v]:
+                if neighbor == parent:
+                    continue
+                if not dfs(neighbor, v):
+                    return False
             return True
+
+        return dfs(0, -1) and len(visited) == n
 
 
 if __name__ == "__main__":
