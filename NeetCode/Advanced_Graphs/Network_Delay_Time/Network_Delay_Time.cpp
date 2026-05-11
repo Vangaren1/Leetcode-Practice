@@ -20,55 +20,51 @@
 #include <vector>
 
 using namespace std;
-
 class Solution
 {
 public:
-    int networkDelayTime(vector<vector<int>> &times, int n, int k)
+    int minCostConnectPoints(vector<vector<int>> &points)
     {
+        int n = points.size();
         unordered_map<int, vector<pair<int, int>>> adj;
-        for (vector<int> time : times)
-        {
-            adj[time[0]].push_back({time[1], time[2]});
-        }
-        vector<int> nodes(n + 1, INT32_MAX);
         unordered_set<int> visited;
 
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> queue;
-        queue.push({0, k});
-
-        while (!queue.empty())
+        for (int index = 0; index < n; index++)
         {
-            pair<int, int> tmp = queue.top();
-            queue.pop();
-            int curr = tmp.second;
-            int weight = tmp.first;
-            if (visited.count(curr))
+            int x = points[index][0];
+            int y = points[index][1];
+            for (int j = index + 1; j < n; j++)
+            {
+                int nx = points[j][0];
+                int ny = points[j][1];
+                int dist = abs(x - nx) + abs(y - ny);
+                adj[index].push_back({dist, j});
+                adj[j].push_back({dist, index});
+            }
+        }
+
+        int totalcost = 0;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> frontier;
+        frontier.push({0, 0});
+        while (visited.size() < n)
+        {
+            int cost = frontier.top().first;
+            int idx = frontier.top().second;
+            frontier.pop();
+            if (visited.count(idx))
             {
                 continue;
             }
-            visited.insert(curr);
-            nodes[curr] = min(nodes[curr], weight);
-
-            for (pair<int, int> adjacent : adj[curr])
+            totalcost = totalcost + cost;
+            visited.insert(idx);
+            for (pair<int, int> curr : adj[idx])
             {
-                int adjNode = adjacent.first;
-                int adjWeight = adjacent.second;
-                if (!visited.count(adjNode))
+                if (!visited.count(curr.second))
                 {
-                    queue.push({weight + adjWeight, adjNode});
+                    frontier.push(curr);
                 }
             }
         }
-        int found = -1;
-        for (int i = 1; i <= n; i++)
-        {
-            found = max(found, nodes[i]);
-        }
-        if (found == INT32_MAX)
-        {
-            return -1;
-        }
-        return found;
+        return totalcost;
     }
 };
