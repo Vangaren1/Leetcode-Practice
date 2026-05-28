@@ -21,7 +21,29 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    int reverse(int x)
+    {
+        int original = x;
+        long long newX = abs((long long)x);
+        long long result = 0;
+        while (newX)
+        {
+            result = result * 10;
+            result = result + (newX % 10);
+            newX = newX / 10;
+        }
+        if (result > INT32_MAX)
+        {
+            return 0;
+        }
+        if (original < 0)
+        {
+            result = result * -1;
+        }
+        return result;
+    }
 };
+;
