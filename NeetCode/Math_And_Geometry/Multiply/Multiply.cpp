@@ -26,33 +26,37 @@ class Solution
 public:
     string multiply(string num1, string num2)
     {
-        long long one = convert(num1);
-        long long two = convert(num2);
-        long long product = one * two;
-
-        string result = "";
-        if (product == 0)
+        // make sure that num1 is shorter than num2
+        if (num1.size() > num2.size())
         {
-            return "0";
+            swap(num1, num2);
         }
-        while (product)
+
+        vector<int> result;
+        int carry = 0;
+        for (int i = 0; i < num1.size(); i++)
         {
-            result = result + (char)(product % 10 + '0');
-            product = product / 10;
+            int n1 = (int)(num1[i] - '0');
+            carry = 0;
+            for (int j = 0; j < num2.size(); j++)
+            {
+                if (i + j + 1 > result.size())
+                {
+                    result.push_back(0);
+                }
+                int n2 = (int)(num2[j] - '0');
+                int prod = n1 * n2;
+                carry = prod / 10;
+                result[i + j] = result[i + j] + carry + (prod % 10);
+            }
         }
         reverse(result.begin(), result.end());
-        return result;
-    }
-    long long convert(string num)
-    {
-        long long total = 0;
-        int tens = 1;
-        for (int ptr = num.size() - 1; ptr >= 0; ptr--)
+
+        string s = "";
+        for (int k : result)
         {
-            int digit = (char)num[ptr] - '0';
-            total = total + (digit * tens);
-            tens = tens * 10;
+            s = s + (char)(k + '0');
         }
-        return total;
+        return s;
     }
 };
