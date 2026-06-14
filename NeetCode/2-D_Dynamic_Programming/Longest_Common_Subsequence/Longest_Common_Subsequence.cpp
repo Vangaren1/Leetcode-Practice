@@ -21,7 +21,47 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
+private:
+    struct PairHash
+    {
+        size_t operator()(const pair<string, string> &p) const
+        {
+            size_t h1 = hash<string>{}(p.first);
+            size_t h2 = hash<string>{}(p.second);
+            return h1 ^ (h2 << 1);
+        }
+    };
+    unordered_map<pair<string, string>, int, PairHash> seen;
+
 public:
-    // TODO: paste the LeetCode method signature here.
+    int longestCommonSubsequence(string text1, string text2)
+    {
+        seen[{"", ""}] = 0;
+
+        return rec(text1, text2, 0, 0);
+    }
+    int rec(string &a, string &b, int ptr1, int ptr2)
+    {
+
+        if (seen.count({a.substr(ptr1), b.substr(ptr2)}))
+        {
+            return seen[{a.substr(ptr1), b.substr(ptr2)}];
+        }
+        if (a.substr(ptr1).size() == 0 || b.substr(ptr2).size() == 0)
+        {
+            return 0;
+        }
+
+        if (a[ptr1] == b[ptr2])
+        {
+            seen[{a.substr(ptr1), b.substr(ptr2)}] = 1 + rec(a, b, ptr1 + 1, ptr2 + 1);
+            return seen[{a.substr(ptr1), b.substr(ptr2)}];
+        }
+        int first = rec(a, b, ptr1 + 1, ptr2);
+        int second = rec(a, b, ptr1, ptr2 + 1);
+        seen[{a.substr(ptr1), b.substr(ptr2)}] = max(first, second);
+        return seen[{a.substr(ptr1), b.substr(ptr2)}];
+    }
 };

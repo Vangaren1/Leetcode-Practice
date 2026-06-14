@@ -21,7 +21,21 @@
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    // TODO: paste the LeetCode method signature here.
+    int change(int amount, vector<int> &coins)
+    {
+        vector<int> dp(0, amount + 1);
+        dp[0] = 1;
+
+        for (int coin : coins)
+        {
+            for (int index = coin; index < amount + 1; index++)
+            {
+                dp[index] = dp[index] + dp[index - coin];
+            }
+        }
+        return dp[amount];
+    }
 };

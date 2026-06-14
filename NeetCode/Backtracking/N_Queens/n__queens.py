@@ -40,5 +40,5 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.solveNQueens(8))
+    print(len(sol.solveNQueens(4)))
     print("Running Solution...")
