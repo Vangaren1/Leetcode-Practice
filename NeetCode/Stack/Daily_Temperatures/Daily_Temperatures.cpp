@@ -27,6 +27,49 @@ public:
     vector<int> dailyTemperatures(vector<int> &temperatures)
     {
         int n = temperatures.size();
+        vector<pair<int, int>> stack;
+        vector<int> results(n, 0);
+
+        for (int index = 0; index < n; index++)
+        {
+            int temp = temperatures[index];
+
+            while (!stack.empty() && stack.back().second < temp)
+            {
+                auto &tmp = stack.back();
+                stack.pop_back();
+                results[tmp.first] = index - tmp.first;
+            }
+            stack.push_back({index, temp});
+        }
+        return results;
+    }
+};
+
+int main()
+{
+    Solution sol;
+
+    vector<int> temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
+
+    vector<int> results = sol.dailyTemperatures(temperatures);
+
+    for (int n : results)
+    {
+        cout << n << " ";
+    }
+
+    return 0;
+}
+
+/*
+
+class Solution
+{
+public:
+    vector<int> dailyTemperatures(vector<int> &temperatures)
+    {
+        int n = temperatures.size();
         vector<int> results(n, 0);
         vector<pair<int, int>> stk;
         int tmp, index;
@@ -48,19 +91,4 @@ public:
         return results;
     }
 };
-
-int main()
-{
-    Solution sol;
-
-    vector<int> temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
-
-    vector<int> results = sol.dailyTemperatures(temperatures);
-
-    for (int n : results)
-    {
-        cout << n << " ";
-    }
-
-    return 0;
-}
+*/
