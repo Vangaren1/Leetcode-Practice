@@ -1,20 +1,23 @@
 from typing import Optional, List
+import bisect
 
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        dp = [1] * len(nums)
 
-        for index in range(len(nums) - 1, -1, -1):
-            for jindex in range(index + 1, len(nums)):
-                if nums[index] < nums[jindex]:
-                    dp[index] = max(dp[index], 1 + dp[jindex])
-        return max(dp)
+        tails = []
+        for num in nums:
+            pos = bisect.bisect_left(tails, num)
+            if pos == len(tails):
+                tails.append(num)
+            else:
+                tails[pos] = num
+        return len(tails)
 
 
 if __name__ == "__main__":
     sol = Solution()
-    nums = [1, 2, 4, 3]
+    nums = [10, 9, 2, 5, 3, 7, 101, 18]
     print(sol.lengthOfLIS(nums))
     print("Running Solution...")
 
