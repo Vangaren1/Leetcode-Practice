@@ -6,16 +6,35 @@ from collections import defaultdict
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
         n = len(nums)
-        decreasing = [1 for _ in range(n)]
-        maxSeen = [nums[0]]
+        fromLeft = [1] * n
+        fromRight = [1] * n
 
-        for i in range(1, n):
-            maxSeen.append(max(nums[i], maxSeen[-1]))
-            if nums[i] < nums[i - 1]:
-                decreasing[i] = 0
+        for index in range(1, n):
+            if nums[index] >= nums[index - 1]:
+                fromLeft[index] = fromLeft[index - 1] + 1
 
-        print(decreasing)
-        print(maxSeen)
+        for index in range(n - 2, -1, -1):
+            if nums[index] <= nums[index + 1]:
+                fromRight[index] = fromRight[index + 1] + 1
+
+        currMax = max(fromLeft)
+
+        # test each index to see if replacing that would improve the best link
+
+        for index in range(n):
+
+            # see if replacing this index can extend a subarray length backwards
+            if index > 0:
+                currMax = max(currMax, fromLeft[index - 1] + 1)
+
+            # see if we can extend to the right
+            if index < n - 1:
+                currMax = max(currMax, fromRight[index + 1] + 1)
+
+            if 0 < index < n - 1 and nums[index - 1] <= nums[index + 1]:
+                currMax = max(currMax, fromLeft[index - 1] + fromRight[index + 1] + 1)
+
+        return currMax
 
 
 if __name__ == "__main__":
