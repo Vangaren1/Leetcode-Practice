@@ -39,6 +39,6 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    nums = [1, 2, 3, 1, 2]
+    nums = [6, -4, -1, -1]
     print(sol.longestSubarray(nums))
     print("Running Solution...")
