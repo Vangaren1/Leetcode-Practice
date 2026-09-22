@@ -11,41 +11,17 @@ class Solution:
 
         sortedIntervals.sort()
 
-        interDictionary = defaultdict(list)
-        startingPoints = []
-        for inter in sortedIntervals:
-            startAt = inter[0][0]
-            if len(startingPoints) == 0 or startingPoints[-1] < startAt:
-                startingPoints.append(startAt)
-            interDictionary[startAt].append(inter)
+        memo = {}
 
-        # return the max value and next interval end, and path taken
-        def dfs(start, path):
-            if n == 0 or (n > 0 and start >= startingPoints[-1]):
-                return (0, float("inf"), path)
-            index = bisect_left(startingPoints, start)
+        def dfs(index, remaining):
+            if index >= n or remaining == 0:
+                return (0, [])
 
-            best = float("-inf")
-            bestIndex = None
-            while index < len(startingPoints):
-                point = startingPoints[index]
+            if (index, remaining) in memo:
+                return memo[(index, remaining)]
 
-                for interval in interDictionary[point]:
-                    endIdx = interval[0][1]
-                    score = interval[0][2]
-                    newPath = path.copy()
-                    newPath.append(interval[1])
-                    test = dfs(endIdx + 1, newPath)
-                    if test[0] + score > best:
-                        best = test[0] + score
-                        bestIndex = test[1]
-                        path = newPath
-                index += 1
-
-            return (best, bestIndex, path)
-
-        for interval in sortedIntervals:
-            print(dfs(interval[0][0], []))
+            # option 1: don't take this interval
+            skip = dfs(index + 1, remaining)
 
 
 if __name__ == "__main__":
